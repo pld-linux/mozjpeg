@@ -79,11 +79,10 @@ chmod -x README-turbo.txt
 %install
 rm -rf $RPM_BUILD_ROOT
 %{__make} install \
-	docdir=%{_docdir} \
-	exampledir=%{_docdir} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_docdir}/*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -108,7 +107,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files libs
 %defattr(644,root,root,755)
-%doc README README-turbo.txt LICENSE.txt
+%doc README README-turbo.txt README-mozilla.txt LICENSE.txt
 %attr(755,root,root) %{_libdir}/libjpeg.so.*.*.*
 %ghost %{_libdir}/libjpeg.so.62
 %attr(755,root,root) %{_libdir}/libturbojpeg.so.*.*.*
