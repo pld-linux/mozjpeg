@@ -1,10 +1,11 @@
 Summary:	SIMD-accelerated JPEG codec that provides both the libjpeg and TurboJPEG APIs
 Name:		mozjpeg
-Version:	2.1
+Version:	3.0
 Release:	0.1
 License:	BSD
-Group:		Applications
-Source0:	https://github.com/mozilla/mozjpeg/archive/v%{version}.tar.gz
+Group:		Applications/Graphics
+Source0:	https://github.com/mozilla/mozjpeg/releases/download/v%{version}/%{name}-%{version}-release-source.tar.gz
+# Source0-md5:	98d47219fab80797907f2c9aceb2c9b7
 URL:		https://github.com/mozilla/mozjpeg
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -57,7 +58,8 @@ The mozjpeg-devel package contains libraries and header files for
 developing applications that use mozjpeg.
 
 %prep
-%setup -q
+%setup -qc
+mv mozjpeg/* .
 
 # Fix perms
 chmod -x README-turbo.txt
